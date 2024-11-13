@@ -42,15 +42,21 @@ public class DriverRepository : IDriverRepository
   }
   public async Task<Driver> CreateDriverAsync(Driver driver)
   {
-    throw NotImplementedExecption();
+    var response = container.CreateItemAsync(driver, new PartitionKey(driver.team));
+    return response.Resource;
   }
   public async Task<Driver> UpdateDriverAsync(string id, Driver driver)
   {
-    throw NotImplementedExecption();
+    var response = container.UpdateItemAsync(driver, new PartitionKey(driver.team));
+    return response.Resource;
   }
-  public Task<bool> DeleteDriver(string id, string team)
+  public async Task<bool> DeleteDriverAsync(string id, string team)
   {
-    throw NotImplementedExecption();
+    var response = container.DeleteItemAsync(id, new PartitionKey(team));
+    if (response.Resource != null)
+      return false;
+
+    return true;
   }
 
 }

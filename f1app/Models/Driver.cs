@@ -2,7 +2,7 @@ using NewtonSoft.Json;
 
 namespace F1App.Api.Models;
 
-puclic class Driver
+public class Driver
 {
   [JsonProperty(PropertyName = "id")]
   public string Id { get; set; } = string.Empty;
