@@ -1,4 +1,5 @@
 using Microsoft.Azure.Cosmos; // TODO: namespace hiányzik, container vagy ilyesmi
+//using Microsoft.Azure.Cosmos;
 using F1App.Api.Models;
 
 namespace F1App.Api.Services;
@@ -13,6 +14,7 @@ public class DriverRepository : IDriverRepository
   {
     var cosmosClient = new CosmosClient(conn, key, new CosmosClientOptions() { });
     container = cosmosClient.GetContainer(databaseName, containerName);
+
   }
   public async Task<IEnumerable<Driver>> GetDriversAsync()
   {
@@ -47,12 +49,21 @@ public class DriverRepository : IDriverRepository
   }
   public async Task<Driver> UpdateDriverAsync(string id, Driver driver)
   {
-    var response = await container.UpdateItemAsync(driver, new PartitionKey(driver.Team));
+    // https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.container.patchitemasync?view=azure-dotnet
+    // műveletek egyenként patchoperation osztállyal definiálandóak egy listában.
+    List<PatchOperation> patchOperations = new List<PatchOperation>()
+    {
+      PatchOperation.Add("/daysOfWeek", new string[]{"Monday", "Thursday"}),
+      PatchOperation.Replace("/frequency", 2),
+      PatchOperation.Remove("/description")
+    };
+
+    var response = await container.PatchItemAsync<Driver>(driver.Id, new PartitionKey(driver.Team), patchOperations);
     return response.Resource;
   }
   public async Task<bool> DeleteDriverAsync(string id, string team)
   {
-    var response = await container.DeleteItemAsync(id, new PartitionKey(team));
+    var response = await container.DeleteItemAsync<Driver>(id, new PartitionKey(team));
     if (response.Resource != null)
       return false;
 

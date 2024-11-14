@@ -1,8 +1,0 @@
-/Users/sumegizoltan/github/_uj/cosmos-store-webapi/F1App/obj/Debug/net9.0/F1App.csproj.AssemblyReference.cache
-/Users/sumegizoltan/github/_uj/cosmos-store-webapi/F1App/obj/Debug/net9.0/F1App.GeneratedMSBuildEditorConfig.editorconfig
-/Users/sumegizoltan/github/_uj/cosmos-store-webapi/F1App/obj/Debug/net9.0/F1App.AssemblyInfoInputs.cache
-/Users/sumegizoltan/github/_uj/cosmos-store-webapi/F1App/obj/Debug/net9.0/F1App.AssemblyInfo.cs
-/Users/sumegizoltan/github/_uj/cosmos-store-webapi/F1App/obj/Debug/net9.0/F1App.csproj.CoreCompileInputs.cache
-/Users/sumegizoltan/github/_uj/cosmos-store-webapi/F1App/obj/Debug/net9.0/F1App.MvcApplicationPartsAssemblyInfo.cs
-/Users/sumegizoltan/github/_uj/cosmos-store-webapi/F1App/obj/Debug/net9.0/F1App.MvcApplicationPartsAssemblyInfo.cache
-/Users/sumegizoltan/github/_uj/cosmos-store-webapi/F1App/obj/Debug/net9.0/F1App.sourcelink.json
