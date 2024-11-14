@@ -1,4 +1,4 @@
-using Microsoft.Azure.Cosmos;
+using Microsoft.Azure.Cosmos; // TODO: namespace hiányzik, container vagy ilyesmi
 using F1App.Api.Models;
 
 namespace F1App.Api.Services;
@@ -32,7 +32,7 @@ public class DriverRepository : IDriverRepository
   {
     try
     {
-      var response = container.ReadItemAsync<Driver>(id, new PartitionKey(team));
+      var response = await container.ReadItemAsync<Driver>(id, new PartitionKey(team));
       return response;
     }
     catch (System.Exception)
@@ -42,17 +42,17 @@ public class DriverRepository : IDriverRepository
   }
   public async Task<Driver> CreateDriverAsync(Driver driver)
   {
-    var response = container.CreateItemAsync(driver, new PartitionKey(driver.team));
+    var response = await container.CreateItemAsync(driver, new PartitionKey(driver.Team));
     return response.Resource;
   }
   public async Task<Driver> UpdateDriverAsync(string id, Driver driver)
   {
-    var response = container.UpdateItemAsync(driver, new PartitionKey(driver.team));
+    var response = await container.UpdateItemAsync(driver, new PartitionKey(driver.Team));
     return response.Resource;
   }
   public async Task<bool> DeleteDriverAsync(string id, string team)
   {
-    var response = container.DeleteItemAsync(id, new PartitionKey(team));
+    var response = await container.DeleteItemAsync(id, new PartitionKey(team));
     if (response.Resource != null)
       return false;
 
