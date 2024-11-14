@@ -32,7 +32,7 @@ public class DriversController : ControllerBase
   public async Task<IActionResult> Post([FromBody] Driver driver)
   {
     var result = await _driverRepository.CreateDriverAsync(driver);
-    return CreatedAtAction(nameof(Get), new { result.Id, driver.team }, result);
+    return CreatedAtAction(nameof(Get), new { result.Id, driver.Team }, result);
   }
 
   [HttpPut("{id}")]
