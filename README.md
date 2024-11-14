@@ -1,5 +1,5 @@
 # cosmos-store
-Azure Cosmos db based .NET CORE micro service architecture
+Azure Cosmos db based .NET 9 micro service architecture
 
 ## init
 dotnet new webapi -controllers -n f1app 
