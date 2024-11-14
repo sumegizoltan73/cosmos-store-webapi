@@ -1,6 +1,5 @@
+//using Swagger;
 using F1App.Api.Services;
-
-namespace F1App.Api;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,12 +8,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+//builder.Services.AddEndpointsApiExplorer();
+//builder.Services.AddSwaggerGen();
+
 builder.Services.AddScoped<IDriverRepository, DriverRepository>(x =>
     new DriverRepository(
         builder.Configuration.GetConnectionString("CosmosDb",
         builder.Configuration["CosmosConfig:primaryKey"],
         builder.Configuration["CosmosConfig:databaseName"],
-        builder.Configuration["CosmosConfig:containerName"] )
+        builder.Configuration["CosmosConfig:containerName"])
     ));
 
 var app = builder.Build();
@@ -23,7 +25,11 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    //app.UseSwagger();
+    //app.UseSwaggerUI();
 }
+
+//app.MapSwagger().RequireAuthorization();
 
 app.UseHttpsRedirection();
 

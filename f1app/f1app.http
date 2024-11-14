@@ -1,6 +1,6 @@
 @f1app_HostAddress = http://localhost:5002
 
-GET {{f1app_HostAddress}}/weatherforecast/
+GET {{f1app_HostAddress}}/drivers/
 Accept: application/json
 
 ###

@@ -9,7 +9,7 @@ namespace F1App.Api.Controllers;
 public class DriversController : ControllerBase
 {
   private readonly IDriverRepository _driverRepository;
-  public DriversControllers(IDriverRepository driverRepository)
+  public DriversController(IDriverRepository driverRepository)
   {
     _driverRepository = driverRepository;
   }
@@ -32,7 +32,7 @@ public class DriversController : ControllerBase
   public async Task<IActionResult> Post([FromBody] Driver driver)
   {
     var result = await _driverRepository.CreateDriverAsync(driver);
-    return CreatedAtAction(nameof(Get), new { id: result.Id }, result);
+    return CreatedAtAction(nameof(Get), new { result.Id, driver.team }, result);
   }
 
   [HttpPut("{id}")]
@@ -45,7 +45,7 @@ public class DriversController : ControllerBase
   [HttpDelete("{id}")]
   public async Task<IActionResult> Delete(string id, string team)
   {
-    var result = await _driverRepository.DeleteDriverAsync(id, driver);
+    var result = await _driverRepository.DeleteDriverAsync(id, team);
 
     if (result)
       return NoContent();

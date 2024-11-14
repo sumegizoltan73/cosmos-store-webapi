@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/sumegizoltan/github/_uj/cosmos-store-webapi/f1app/f1app.csproj": {}
+    "/Users/sumegizoltan/github/_uj/cosmos-store-webapi/F1App/F1App.csproj": {}
   },
   "projects": {
-    "/Users/sumegizoltan/github/_uj/cosmos-store-webapi/f1app/f1app.csproj": {
+    "/Users/sumegizoltan/github/_uj/cosmos-store-webapi/F1App/F1App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/sumegizoltan/github/_uj/cosmos-store-webapi/f1app/f1app.csproj",
-        "projectName": "f1app",
-        "projectPath": "/Users/sumegizoltan/github/_uj/cosmos-store-webapi/f1app/f1app.csproj",
+        "projectUniqueName": "/Users/sumegizoltan/github/_uj/cosmos-store-webapi/F1App/F1App.csproj",
+        "projectName": "F1App",
+        "projectPath": "/Users/sumegizoltan/github/_uj/cosmos-store-webapi/F1App/F1App.csproj",
         "packagesPath": "/Users/sumegizoltan/.nuget/packages/",
-        "outputPath": "/Users/sumegizoltan/github/_uj/cosmos-store-webapi/f1app/obj/",
+        "outputPath": "/Users/sumegizoltan/github/_uj/cosmos-store-webapi/F1App/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/sumegizoltan/.nuget/NuGet/NuGet.Config"
@@ -55,6 +55,14 @@
             "NewtonSoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
+            },
+            "Swagger": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             }
           },
           "imports": [
