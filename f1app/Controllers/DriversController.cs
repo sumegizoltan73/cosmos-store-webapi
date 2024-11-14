@@ -17,6 +17,7 @@ public class DriversController : ControllerBase
   [HttpGet]
   public async Task<IActionResult> Get()
   {
+    return Ok("result");
     var result = await _driverRepository.GetDriversAsync();
     return Ok(result);
   }

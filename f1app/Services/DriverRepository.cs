@@ -12,8 +12,8 @@ public class DriverRepository : IDriverRepository
     string databaseName,
     string containerName)
   {
-    var cosmosClient = new CosmosClient(conn, key, new CosmosClientOptions() { });
-    container = cosmosClient.GetContainer(databaseName, containerName);
+    //var cosmosClient = new CosmosClient(conn, key, new CosmosClientOptions() { });
+    //container = cosmosClient.GetContainer(databaseName, containerName);
 
   }
   public async Task<IEnumerable<Driver>> GetDriversAsync()

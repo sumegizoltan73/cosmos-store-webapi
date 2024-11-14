@@ -14,3 +14,6 @@ From tutorial: dotnet add package Microsoft.Azure.Cosmos
 [patchoperation osztály](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.container.patchitemasync?view=azure-dotnet)
     Műveletek egyenként patchoperation osztállyal definiálandóak egy listában.
     
+## Azure Cosmos nélküli működés
+![API 1](/api_1.png)
+![API 2](/api_2.png)
