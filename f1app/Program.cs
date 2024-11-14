@@ -24,16 +24,15 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
-    //app.UseSwagger();
-    //app.UseSwaggerUI();
+    app.MapOpenApi("/openapi/v1/F1App.json");
 }
-
-//app.MapSwagger().RequireAuthorization();
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+// Your API endpoints
+app.MapGet("/", () => "Hello world!");
 
 app.MapControllers();
 
